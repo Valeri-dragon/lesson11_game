@@ -9,7 +9,7 @@ const circle = document.getElementById("circle");
 const btnInCircle = document.getElementById("e_btn");
 
 const addBackground = function (str) {
-  return (square.style.background = str);
+  return (square.style.backgroundColor = str);
 };
 
 const getTheValue = function (event) {
@@ -18,11 +18,13 @@ const getTheValue = function (event) {
 
 const valueForWidthAndHeight = function (event) {
   rangeSpan.textContent = event.target.value;
-  circle.style.width = Number(rangeSpan.textContent) + "%";
-  circle.style.height = Number(rangeSpan.textContent) + "%";
-};
+  circle.style.width = `${Number(rangeSpan.textContent)}%`;
+  circle.style.height = `${Number(rangeSpan.textContent)}%`;
+  circle.style.backgroundColor = window.getComputedStyle(square).backgroundColor;
+   circle.style.filter = `hue-rotate(270deg)`;
+ };
 
-btnInCircle.style.display = "none";
+btnInCircle.style.display = `none`;
 
 inputText.addEventListener("input", function (event) {
   btn.addEventListener("click", function () {
